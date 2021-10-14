@@ -1,4 +1,1 @@
-nodeapp_copy_src: "/home/manoj/Documents/test2/node_app.tar.xz"
-nodeapp_copy_dest: "/home/manoj/Documents/node_app"
-nodeapp_unarchive_src: "/home/manoj/Documents/node_app/node_app.tar.xz"
-nodeapp_unarchive_dest: "/home/manoj/Documents/node_app"
+nodeapp_var: "/home/manoj/Documents"
