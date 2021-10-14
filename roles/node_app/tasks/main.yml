@@ -1,15 +1,9 @@
-
-
 - name: copying tar.xz file to new location
-  copy:
-    src: /home/manoj/Documents/ansible/roles/defaults/main.yml/{{ nodeapp_copy_src }}
-    dest: /home/manoj/Documents/ansible/roles/defaults/main.yml/{{ nodeapp_copy_dest }}
+  file: path={{[ nodeapp_copy_src, nodeapp_copy_dest ]}} state=directory
+   
 
-
-- name: Extracting node_app.tar.xz to /home/manoj/Documents/node_app/node_app 
-  unarchive:
-    src: /home/manoj/Documents/ansible/roles/defaults/main.yml/{{ nodeapp_unarchive_src }}
-    dest: /home/manoj/Documents/ansible/roles/defaults/main.yml/{{ nodeapp_unarchive_dest }}
+- name: Extracting node_app.tar.xz to /home/manoj/Documents/node_app/node_app
+  file: path={{[ nodeapp_unarchive_src, nodeapp_unarchive_dest]}} state=directory 
 
     
 - name: performing npm install
@@ -20,6 +14,7 @@
 
 - name: performing npm start
   shell: nohup npm start --prefix /home/manoj/Documents/node_app &
+
 
 
 
