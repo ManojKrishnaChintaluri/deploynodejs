@@ -11,8 +11,7 @@
 - name: Extracting node_app.tar.xz to /home/manoj/Documents/node_app/node_app
   vars:
     nodeapp_unarchive_src: /home/manoj/Documents/node_app/node_app.tar.xz
-    nodeapp_unarchive_dest: /home/manoj/Documents/node_app
- 
+    nodeapp_unarchive_dest: /home/manoj/Documents/node_app 
   unarchive:
     src: "{{ nodeapp_unarchive_src }}"
     dest: "{{ nodeapp_unarchive_dest }}"
