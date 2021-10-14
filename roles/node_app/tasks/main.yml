@@ -1,9 +1,15 @@
+
+
 - name: copying tar.xz file to new location
-  file: path={{[ nodeapp_copy_src, nodeapp_copy_dest ]}} state=directory
-   
+  copy:
+    src: '{{ nodeapp_var }}/test2/node_app.tar.xz'
+    dest: '{{ nodeapp_var }}/node_app'
+  
 
 - name: Extracting node_app.tar.xz to /home/manoj/Documents/node_app/node_app
-  file: path={{[ nodeapp_unarchive_src, nodeapp_unarchive_dest]}} state=directory 
+  unarchive:
+    src: '{{ nodeapp_var }}/node_app/node_app.tar.xz'
+    dest: '{{ nodeapp_var }}/node_app' 
 
     
 - name: performing npm install
@@ -14,12 +20,4 @@
 
 - name: performing npm start
   shell: nohup npm start --prefix /home/manoj/Documents/node_app &
-
-
-
-
-
-
-
-
 
