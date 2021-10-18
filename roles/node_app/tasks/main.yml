@@ -1,5 +1,4 @@
 
-
 - name: copying tar.xz file to new location
   copy:
     src: '{{ nodeapp_var }}/test2/node_app.tar.xz'
@@ -15,9 +14,11 @@
 - name: performing npm install
   npm:
     state: present
-    path: /home/manoj/Documents/node_app
+    path: '{{ nodeapp_var }}/node_app'   
 
 
-- name: performing npm start
-  shell: nohup npm start --prefix /home/manoj/Documents/node_app &
+- name: performing pm2 start
+  shell: 'pm2 start --name"node_app"{{ nodeapp_var }}/node_app &'
 
+- name: delete existing pm2 process if running
+  shell: pm2 delete --name"node_app" & 
